@@ -69,38 +69,78 @@ class Harmonisasi extends CI_Controller {
             }
             $this->db->order_by('id_berita', 'DESC');
             $data['query'] = $this->db->get("tbl_berita");
-
-
-//			    echo "pemprov_ntb"; die;
-//            $this->db->order_by('id_berita', 'DESC');
-//            $data['query'] = $this->db->get_where("tbl_berita",array(
-//                "zona_dokumen"=>"pemprov_ntb",
-//                "status"=>$status,
-//                ));
             /*tabel ny di select belakangan*/
+
             $p = "pemprov_ntb";
             $data['judul_web'] 	  = "DOKUMEN HARMONISASI PEMPROV NTB";
 
         } else if($aksi=='pemkot_mataram'){
+            if ($status=='menunggu' or $status=='proses' or $status=='konfirmasi' or $status=='selesai') {
+                $this->db->where('status',$status);
+                $this->db->where('zona_dokumen',"pemkot_mataram");
+            } else if($status=='semua'){
+                redirect("harmonisasi/v/pemkot_mataram");
+            }
             $this->db->order_by('id_berita', 'DESC');
-            $data['query'] = $this->db->get_where("tbl_berita",array("zona_dokumen"=>"pemkot_mataram"));
+            $data['query'] = $this->db->get("tbl_berita");
+            /*tabel ny di select belakangan*/
+
             $p = "pemkot_mataram";
-            $data['judul_web'] 	= "DOKUMEN HARMONISASI PEMKOT MATARAM";
+            $data['judul_web'] 	  = "DOKUMEN HARMONISASI PEMKOT MATARAM";
+
+
+//            $this->db->order_by('id_berita', 'DESC');
+//            $data['query'] = $this->db->get_where("tbl_berita",array("zona_dokumen"=>"pemkot_mataram"));
+//            $p = "pemkot_mataram";
+//            $data['judul_web'] 	= "DOKUMEN HARMONISASI PEMKOT MATARAM";
         } else if($aksi=='pemkot_bima'){
+
+            if ($status=='menunggu' or $status=='proses' or $status=='konfirmasi' or $status=='selesai') {
+                $this->db->where('status',$status);
+                $this->db->where('zona_dokumen',"pemkot_bima");
+            } else if($status=='semua'){
+                redirect("harmonisasi/v/pemkot_bima");
+            }
             $this->db->order_by('id_berita', 'DESC');
-            $data['query'] = $this->db->get_where("tbl_berita",array("zona_dokumen"=>"pemkot_bima"));
+            $data['query'] = $this->db->get("tbl_berita");
+            /*tabel ny di select belakangan*/
+
             $p = "pemkot_bima";
             $data['judul_web'] 	  = "DOKUMEN HARMONISASI PEMKOT BIMA";
+
         } else if($aksi=='pemkab_sumbawa_barat'){
+            if ($status=='menunggu' or $status=='proses' or $status=='konfirmasi' or $status=='selesai') {
+                $this->db->where('status',$status);
+                $this->db->where('zona_dokumen',"pemkab_sumbawa_barat");
+            } else if($status=='semua'){
+                redirect("harmonisasi/v/pemkab_sumbawa_barat");
+            }
             $this->db->order_by('id_berita', 'DESC');
-            $data['query'] = $this->db->get_where("tbl_berita",array("zona_dokumen"=>"pemkab_sumbawa_barat"));
+            $data['query'] = $this->db->get("tbl_berita");
+            /*tabel ny di select belakangan*/
+
             $p = "pemkab_sumbawa_barat";
             $data['judul_web'] 	  = "DOKUMEN HARMONISASI PEMKAB SUMBAWA BARAT";
+
         } else if($aksi=="pemkab_sumbawa"){
+            if ($status=='menunggu' or $status=='proses' or $status=='konfirmasi' or $status=='selesai') {
+                $this->db->where('status',$status);
+                $this->db->where('zona_dokumen',"pemkab_sumbawa");
+            } else if($status=='semua'){
+                redirect("harmonisasi/v/pemkab_sumbawa");
+            }
             $this->db->order_by('id_berita', 'DESC');
-            $data['query'] = $this->db->get_where("tbl_berita",array("zona_dokumen"=>"pemkab_sumbawa"));
+            $data['query'] = $this->db->get("tbl_berita");
+            /*tabel ny di select belakangan*/
+
             $p = "pemkab_sumbawa";
-            $data['judul_web'] 	  = "DOKUMEN HARMONISASI PEMKAB SUMBAWA ";
+            $data['judul_web'] 	  = "DOKUMEN HARMONISASI PEMKAB SUMBAWA";
+
+
+//            $this->db->order_by('id_berita', 'DESC');
+//            $data['query'] = $this->db->get_where("tbl_berita",array("zona_dokumen"=>"pemkab_sumbawa"));
+//            $p = "pemkab_sumbawa";
+//            $data['judul_web'] 	  = "DOKUMEN HARMONISASI PEMKAB SUMBAWA ";
         } else if($aksi=="pemkab_lombok_utara"){
             $this->db->order_by('id_berita', 'DESC');
             $data['query'] = $this->db->get_where("tbl_berita",array("zona_dokumen"=>"pemkab_lombok_utara"));

@@ -45,7 +45,7 @@ $link5 = strtolower($this->uri->segment(5));
                             <select class="form-control default-select2" id="stt">
                                 <option value="semua" <?php if('semua'==$link5){ ?> selected <?php }?> >- Semua -</option>
                                 <option value="menunggu" <?php if('menunggu'==$link5){echo "selected";} ?> >Belum diproses</option>
-                                <option value="proses" <?php if('proses'==$link5){echo "selected";} ?> >Narasi sedang dibuat</option>
+                                <option value="proses" <?php if('proses'==$link5){echo "selected";} ?> >Draft sedang dibuat</option>
                                 <option value="konfirmasi" <?php if('konfirmasi'==$link5){ ?> selected <?php } ?> >Menunggu koreksi</option>
                                 <option value="selesai" <?php if('selesai'==$link5){echo "selected";} ?> >Selesai</option>
                             </select>

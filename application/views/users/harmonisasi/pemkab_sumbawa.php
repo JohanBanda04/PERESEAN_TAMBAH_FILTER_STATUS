@@ -38,6 +38,27 @@ $link4 = strtolower($this->uri->segment(4));
                     <h4 class="panel-title">Daftar Raperda / Raperkada</h4>
                 </div>
                 <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12"><b>Filter</b></div>
+                        <div class="col-md-3">
+                            <select class="form-control default-select2" id="stt">
+                                <option value="semua" <?php if('semua'==$link5){ ?> selected <?php }?> >- Semua -</option>
+                                <option value="menunggu" <?php if('menunggu'==$link5){echo "selected";} ?> >Belum diproses</option>
+                                <option value="proses" <?php if('proses'==$link5){echo "selected";} ?> >Draft sedang dibuat</option>
+                                <option value="konfirmasi" <?php if('konfirmasi'==$link5){ ?> selected <?php } ?> >Menunggu koreksi</option>
+                                <option value="selesai" <?php if('selesai'==$link5){echo "selected";} ?> >Selesai</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-default" onclick="window.location.href='harmonisasi/v2/pemkab_sumbawa/id/'+$('#stt').val();"><i class="fa fa-search"></i> Filter</button>
+                        </div>
+                        <div class="col-md-6"></div>
+                        <div class="col-md-2">
+                            <?php if ($level=='pelaksana'): ?>
+                                <a href="<?php echo strtolower($this->uri->segment(1)); ?>/<?php echo strtolower($this->uri->segment(2)); ?>/t.html" class="btn btn-primary" style="float:right;">Tambah Bahan Berita</a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                     <br>
                     <div class="table-responsive">
                         <table id="data-table" class="table table-striped table-bordered">
@@ -45,6 +66,7 @@ $link4 = strtolower($this->uri->segment(4));
                             <tr>
                                 <th width="1%">No.</th>
                                 <th width="45%">Judul</th>
+                                <th>Status</th>
                                 <th>Jenis</th>
                                 <th width="15%" style="text-align: center">Aksi</th>
                             </tr>
@@ -57,6 +79,7 @@ $link4 = strtolower($this->uri->segment(4));
                                 <tr>
                                     <td><b><?php echo $no++; ?>.</b> </td>
                                     <td><?php echo $baris->nama_kegiatan; ?></td>
+                                    <td><?php echo $this->Mcrud->cek_status_berita($baris->status) ; ?></td>
                                     <td><?php echo $baris->jenis_dokumen; ?></td>
                                     <td align="center">
                                         <a href="<?php echo base_url($baris->lamp_surat_undangan);?>"
@@ -65,13 +88,13 @@ $link4 = strtolower($this->uri->segment(4));
 
                                             <i class="fa fa-download"></i>
                                         </a>
-                                        <a href="<?php echo $link1; ?>/<?php echo $link2; ?>/h/<?php echo hashids_encrypt($baris->id_berita); ?>/pemkab_sumbawa"
+                                        <a href="<?php echo $link1; ?>/v/h/<?php echo hashids_encrypt($baris->id_berita); ?>/pemkab_sumbawa"
                                            class="btn btn-danger btn-xs"
                                            title="Hapus Dokumen" onclick="return confirm('Anda yakin?');">
                                             <i class="fa fa-trash-o"></i>
                                         </a>
 
-                                        <a href="<?php echo $link1; ?>/<?php echo $link2; ?>/e/<?php echo hashids_encrypt($baris->id_berita); ?>/pemkab_sumbawa"
+                                        <a href="<?php echo $link1; ?>/v/e/<?php echo hashids_encrypt($baris->id_berita); ?>/pemkab_sumbawa"
                                            class="btn btn-success btn-xs" title="Edit">
                                             <i class="fa fa-edit"></i>
                                         </a>

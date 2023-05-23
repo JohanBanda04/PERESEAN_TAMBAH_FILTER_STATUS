@@ -179,13 +179,19 @@ $sub_menu3 = strtolower($this->uri->segment(3));
                         OR
                         ($menu=='harmonisasi' AND $sub_menu=='v' AND $sub_menu3=='pemkot_mataram')
                         OR
-                        ($menu=='harmonisasi' AND $sub_menu=='v' AND $sub_menu3=='pemkot_bima')
+                        ($menu=='harmonisasi' AND $sub_menu=='v2' AND $sub_menu3=='pemkot_mataram')
                         OR
                         ($menu=='harmonisasi' AND $sub_menu=='v' AND $sub_menu3=='pemkot_bima')
+                        OR
+                        ($menu=='harmonisasi' AND $sub_menu=='v2' AND $sub_menu3=='pemkot_bima')
                         OR
                         ($menu=='harmonisasi' AND $sub_menu=='v' AND $sub_menu3=='pemkab_sumbawa_barat')
                         OR
+                        ($menu=='harmonisasi' AND $sub_menu=='v2' AND $sub_menu3=='pemkab_sumbawa_barat')
+                        OR
                         ($menu=='harmonisasi' AND $sub_menu=='v' AND $sub_menu3=='pemkab_sumbawa')
+                        OR
+                        ($menu=='harmonisasi' AND $sub_menu=='v2' AND $sub_menu3=='pemkab_sumbawa')
                         OR
                         ($menu=='harmonisasi' AND $sub_menu=='v' AND $sub_menu3=='pemkab_lombok_utara')
                         OR
@@ -214,22 +220,22 @@ $sub_menu3 = strtolower($this->uri->segment(3));
                             </li>
 
 
-                            <li <?php if($menu=='harmonisasi' AND $sub_menu=='v' and $sub_menu3=='pemkot_mataram'){echo " class='active'";} ?>>
+                            <li <?php if(($menu=='harmonisasi' AND $sub_menu=='v' and $sub_menu3=='pemkot_mataram') or ($menu=='harmonisasi' AND $sub_menu=='v2' and $sub_menu3=='pemkot_mataram')){echo " class='active'";} ?>>
                                 <a href="harmonisasi/v/pemkot_mataram.html">
                                     <i class="fa fa-file-text"></i> <span>Pemkot Mataram</span>
                                 </a>
                             </li>
-                            <li <?php if($menu=='harmonisasi' AND $sub_menu=='v' and $sub_menu3=='pemkot_bima'){echo " class='active'";} ?>>
+                            <li <?php if(($menu=='harmonisasi' AND $sub_menu=='v' and $sub_menu3=='pemkot_bima') or ($menu=='harmonisasi' AND $sub_menu=='v2' and $sub_menu3=='pemkot_bima')){echo " class='active'";} ?>>
                                 <a href="harmonisasi/v/pemkot_bima.html">
                                     <i class="fa fa-file-text"></i> <span>Pemkot Bima</span>
                                 </a>
                             </li>
-                            <li <?php if($menu=='harmonisasi' AND $sub_menu=='v' and $sub_menu3=='pemkab_sumbawa_barat'){echo " class='active'";} ?>>
+                            <li <?php if(($menu=='harmonisasi' AND $sub_menu=='v' and $sub_menu3=='pemkab_sumbawa_barat') or ($menu=='harmonisasi' AND $sub_menu=='v2' and $sub_menu3=='pemkab_sumbawa_barat')){echo " class='active'";} ?>>
                                 <a href="harmonisasi/v/pemkab_sumbawa_barat.html">
                                     <i class="fa fa-file-text"></i> <span>Pemkab Sumbawa Barat</span>
                                 </a>
                             </li>
-                            <li <?php if($menu=='harmonisasi' and $sub_menu=='v' and $sub_menu3=='pemkab_sumbawa'){echo " class='active'";} ?>>
+                            <li <?php if(($menu=='harmonisasi' and $sub_menu=='v' and $sub_menu3=='pemkab_sumbawa') or ($menu=='harmonisasi' and $sub_menu=='v2' and $sub_menu3=='pemkab_sumbawa')){echo " class='active'";} ?>>
                                 <a href="harmonisasi/v/pemkab_sumbawa.html">
                                     <i class="fa fa-file-text"></i> <span>Pemkab Sumbawa</span>
                                 </a>
